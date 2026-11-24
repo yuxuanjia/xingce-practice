@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>行测刷题台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div><p class="eyebrow">2016 — 2026 · 行测真题</p><h1>行测刷题台</h1><p class="subtle">从本地题库随机抽题，做完马上看答案与解析。</p></div>
+      <div class="hero-metrics">
+        <div class="score-card"><span>本轮正确率</span><strong id="accuracy">—</strong><small id="score-detail">还没有作答</small></div>
+        <div class="timer-card"><span>本题用时</span><strong id="timer">00:00</strong><small>作答后自动记录</small></div>
+      </div>
+    </header>
+
+    <section class="controls" aria-label="出题设置">
+      <label>模块<select id="module-select"><option value="all">全部模块</option></select></label>
+      <label>省份 / 来源<select id="region-select"><option value="all">全部省份</option></select></label>
+      <label>试卷<select id="paper-select"><option value="all">随机试卷</option></select></label>
+      <button id="new-question" class="primary">换一道题</button>
+      <button id="wrong-list-button" class="quiet">错题本 <span id="wrong-count">0</span></button>
+      <button id="reset-session" class="quiet">重置本轮</button>
+    </section>
+
+    <section class="statusbar"><span id="source">正在读取题库索引…</span><span id="progress">已作答 0 题</span><span id="total-time">累计用时 00:00</span></section>
+
+    <article id="question-card" class="question-card" aria-live="polite">
+      <div class="loading">正在准备题目…</div>
+    </article>
+  </main>
+  <aside id="wrong-drawer" class="wrong-drawer" aria-hidden="true" aria-label="错题本">
+    <div class="drawer-head"><div><p class="eyebrow">错题本</p><h2>待复习题目</h2></div><button id="close-wrong-drawer" class="icon-button" aria-label="关闭错题本">×</button></div>
+    <p class="drawer-hint">错题会保存到当前浏览器。重新答对后将自动移出。</p>
+    <div id="wrong-list" class="wrong-list"></div>
+    <button id="clear-wrong-list" class="text-button">清空错题本</button>
+  </aside>
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+  <template id="empty-template"><div class="empty"><h2>没有找到可用题目</h2><p>试试切换模块或试卷。</p></div></template>
+  <script src="app.js"></script>
+</body>
+</html>

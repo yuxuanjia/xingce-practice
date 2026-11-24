@@ -1,0 +1,6 @@
+# Generated from the user's local question bank
+data/papers.json
+
+# Local runtime files
+*.log
+.DS_Store
